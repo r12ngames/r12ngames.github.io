@@ -42,7 +42,9 @@
                     });
             })('b30e4adf-92f1-4103-7231-071f12ccadef');
         </script>
-        <canvas id="canvas" style="padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto;display: block;"></canvas>
+        <div style="padding: 100px 30px; background-image: url('./other_logos/pacborder.png');background-position:center;background-attachment: fixed;background-repeat:no-repeat;text-align: center;">
+            <canvas id="canvas" style="padding-left: 0px;padding-right: 0px;margin-left: auto;margin-right: auto;display: block;image-rendering: pixelated;width: 560px;height: 720px;cursor: default;left: 0;right: 0;/* text-align: center; */" width="560" height="720" moz-opaque=""></canvas>
+        </div>
         
         <script type="text/javascript" src="../mame/emularity/es6-promise.js"></script>
         <script type="text/javascript" src="../mame/emularity/browserfs.min.js"></script>
@@ -55,7 +57,7 @@
                 new JSMAMELoader(
                     JSMAMELoader.driver("pacman"),
                     JSMAMELoader.nativeResolution(224, 288),
-                    JSMAMELoader.scale(2.5),
+                    JSMAMELoader.scale(2.3),
                     JSMAMELoader.emulatorJS("mamepacman.js"),
                     JSMAMELoader.mountFile("pacman.zip", JSMAMELoader.fetchFile("Game File", "pacman.zip"))         
                 )
