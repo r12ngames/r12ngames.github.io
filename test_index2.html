@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="../mame/style.css">
+        <title>ᏆᎧᎹᏅ</title>
+    </head>
+    <body>
+        <script>
+            (function(apiKey){
+                (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
+                v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+                    o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+                    y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+                    z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+
+                    // Call this whenever information about your visitors becomes available
+                    // Please use Strings, Numbers, or Bools for value types.
+                    pendo.initialize({
+                        visitor: {
+                            id:              'VISITOR-UNIQUE-ID'   // Required if user is logged in
+                            // email:        // Recommended if using Pendo Feedback, or NPS Email
+                            // full_name:    // Recommended if using Pendo Feedback
+                            // role:         // Optional
+
+                            // You can add any additional visitor level key-values here,
+                            // as long as it's not one of the above reserved names.
+                        },
+
+                        account: {
+                            id:           'ACCOUNT-UNIQUE-ID' // Highly recommended
+                            // name:         // Optional
+                            // is_paying:    // Recommended if using Pendo Feedback
+                            // monthly_value:// Recommended if using Pendo Feedback
+                            // planLevel:    // Optional
+                            // planPrice:    // Optional
+                            // creationDate: // Optional
+
+                            // You can add any additional account level key-values here,
+                            // as long as it's not one of the above reserved names.
+                        }
+                    });
+            })('b30e4adf-92f1-4103-7231-071f12ccadef');
+        </script>
+        <div style="padding: 90px 30px 0px;background-image: url('./other_logos/pacborder.png');background-position:center;background-attachment: fixed;background-repeat:no-repeat;text-align: center;">
+            <canvas id="canvas" style="padding-left: 0px;padding-right: 0px;margin-left: auto;margin-right: auto;display: block;image-rendering: pixelated;width: 560px;height: 720px;cursor: default;left: 0;right: 0;/* text-align: center; */" width="560" height="720" moz-opaque=""></canvas>
+        </div>
+        
+        <script type="text/javascript" src="../mame/emularity/es6-promise.js"></script>
+        <script type="text/javascript" src="../mame/emularity/browserfs.min.js"></script>
+        <script type="text/javascript" src="../mame/emularity/loader.js"></script>
+        <script type="text/javascript" src="../mame/simulatekey.js"></script>
+        <script type="text/javascript">
+            var emulator = new Emulator(
+                document.querySelector("#canvas"),
+                null,
+                new JSMAMELoader(
+                    JSMAMELoader.driver("pacman"),
+                    JSMAMELoader.nativeResolution(224, 288),
+                    JSMAMELoader.scale(2.3),
+                    JSMAMELoader.emulatorJS("mamepacman.js"),
+                    JSMAMELoader.mountFile("pacman.zip", JSMAMELoader.fetchFile("Game File", "pacman.zip"))         
+                )
+            );
+            
+            emulator.setSplashImage('../mame/logo/emularity_color.png');
+            emulator.start({ waitAfterDownloading: false });
+        </script>
+    </body>
+</html>
